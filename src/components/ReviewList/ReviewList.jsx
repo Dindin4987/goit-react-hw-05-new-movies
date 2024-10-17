@@ -17,9 +17,21 @@ const ReviewList = () => {
         console.error(err);
       }
     })();
-}, [movieId]);
-  
+  }, [movieId]);
 
-  return 
+  return (
+    <>
+      {reviews.length === 0 ? (
+        <div>We don't have any reviews for this movie.</div>
+      ) : (
+        <ul>
+          {reviews.map(({ id, author, content }) => (
+            <ReviewListItem key={id} author={author} content={content} />
+          ))}
+        </ul>
+      )}
+    </>
+  );
+};
 
 export default ReviewList;
