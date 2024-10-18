@@ -2,8 +2,8 @@
 
 /* CSS VARIABLES */
 :root {
-  --PRIMARY: #e85d04;
-  --SECONDARY: #f48c06;
+  --PRIMARY: blue;
+  --SECONDARY: #278caa;
   --DARK: #303030;
   --LIGHT: #edf2f4;
   --DANGER: red;

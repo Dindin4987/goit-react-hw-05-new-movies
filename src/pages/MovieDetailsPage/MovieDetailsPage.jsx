@@ -16,8 +16,8 @@ const MovieDetailsPage = () => {
       try {
         const movie = await fetchMovieDetails(movieId);
         setMovieDetails(movie);
-      } catch (err) {
-        console.error(err);
+      } catch (error) {
+        console.error(error);
       }
     })();
   }, [movieId]);
@@ -29,7 +29,7 @@ const MovieDetailsPage = () => {
   return (
     <>
       <Link to={backLinkHref}>
-        <Button text="Go Back" />
+        <Button text="⬅ Go back" />
       </Link>
 
       <div className={css.movieDetailsContainer}>
@@ -42,7 +42,6 @@ const MovieDetailsPage = () => {
           }
           alt={movieDetails.title}
         />
-
         <div className={css.movieDetailsWrap}>
           <h1 className={css.movieTitle}>{movieDetails.title}</h1>
           <h4 className={css.userScore}>
@@ -53,24 +52,22 @@ const MovieDetailsPage = () => {
           <h2>Genres</h2>
           <p>
             {movieDetails.genres.map(genre => (
-              <span>{genre.name}</span>
+              <span key={genre.id}> {genre.name}</span>
             ))}
           </p>
         </div>
       </div>
 
       <hr />
-      <h3 className={css.additionalInfo}>Additional Information</h3>
+      <h3 className={css.additionalInfo}>Additional information</h3>
 
       <Link to="cast">
         <Button text="Cast" />
       </Link>
-
       <Link to="reviews">
         <Button text="Reviews" />
       </Link>
       <hr />
-
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
