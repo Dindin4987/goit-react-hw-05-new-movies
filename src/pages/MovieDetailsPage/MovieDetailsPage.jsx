@@ -3,7 +3,6 @@ import { Loader } from 'components/Loader/Loader';
 import { Suspense, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import css from './MovieDetailsPage.module.css';
-import { Button } from 'react-scroll';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
