@@ -1,7 +1,7 @@
 import { fetchMovieDetails } from 'api/api';
 import { Loader } from 'components/Loader/Loader';
-import { useEffect, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import css from './MovieDetailsPage.module.css';
 import { Button } from 'react-scroll';
 
@@ -32,7 +32,7 @@ const MovieDetailsPage = () => {
         <Button text="Go Back" />
       </Link>
 
-      <div>
+      <div className={css.movieDetailsContainer}>
         <img
           className={css.image}
           src={
@@ -43,9 +43,11 @@ const MovieDetailsPage = () => {
           alt={movieDetails.title}
         />
 
-        <div>
-          <h1>{movieDetails.title}</h1>
-          <h4>User score: {Math.round(movieDetails.vote_average * 10)}%</h4>
+        <div className={css.movieDetailsWrap}>
+          <h1 className={css.movieTitle}>{movieDetails.title}</h1>
+          <h4 className={css.userScore}>
+            User score: {Math.round(movieDetails.vote_average * 10)}%
+          </h4>
           <h2>Overview</h2>
           <p>{movieDetails.overview}</p>
           <h2>Genres</h2>
@@ -58,16 +60,20 @@ const MovieDetailsPage = () => {
       </div>
 
       <hr />
-      <h3>Additional Information</h3>
+      <h3 className={css.additionalInfo}>Additional Information</h3>
 
-      <Link>
-        <Button />
+      <Link to="cast">
+        <Button text="Cast" />
       </Link>
 
-      <Link>
-        <Button />
+      <Link to="reviews">
+        <Button text="Reviews" />
       </Link>
       <hr />
+
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
