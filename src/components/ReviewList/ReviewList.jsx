@@ -14,7 +14,7 @@ const ReviewList = () => {
         const res = await fetchMovieReviews(movieId);
         setReviews(res);
       } catch (error) {
-        console.error(err);
+        console.error(error);
       }
     })();
   }, [movieId]);
