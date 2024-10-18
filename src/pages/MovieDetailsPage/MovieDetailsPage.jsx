@@ -29,7 +29,7 @@ const MovieDetailsPage = () => {
   return (
     <>
       <Link to={backLinkHref}>
-        <Button text="⬅ Go back" />
+        <button className={css.button}>⬅ Go back</button>
       </Link>
 
       <div className={css.movieDetailsContainer}>
@@ -62,10 +62,10 @@ const MovieDetailsPage = () => {
       <h3 className={css.additionalInfo}>Additional information</h3>
 
       <Link to="cast">
-        <Button text="Cast" />
+        <button className={css.button}>Cast</button>
       </Link>
       <Link to="reviews">
-        <Button text="Reviews" />
+        <button className={css.button}>Reviews</button>
       </Link>
       <hr />
       <Suspense fallback={<Loader />}>

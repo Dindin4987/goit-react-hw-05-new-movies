@@ -1,7 +1,12 @@
 .movieListItem {
-  padding: 5px 12px;
-  border-bottom: 1px solid transparent;
-  position: relative;
+  border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 1px 5px 7px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+
+    display: flex;
+    align-items: center;
 }
 
 .link {
